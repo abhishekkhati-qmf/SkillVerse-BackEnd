@@ -20,11 +20,6 @@ export const register = async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     await User.create({ name, email, password: hashedPassword });
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
-    });
     return res.status(201).json({
       success: true,
       message: "Account created successfully.",
@@ -61,11 +56,6 @@ export const login = async (req, res) => {
         message: "Incorrect email or password",
       });
     }
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
-    });
     generateToken(res, user, `Welcom back ${user.name}`);
   } catch (error) {
     console.log(error);
