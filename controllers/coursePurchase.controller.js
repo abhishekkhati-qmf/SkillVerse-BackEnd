@@ -40,9 +40,9 @@ export const createCheckoutSession = async (req, res) => {
         customer_phone: "9999999999",
       },
       order_meta: {
-        return_url: `http://localhost:5173/course-progress/${courseId}`, // redirect after payment
+        return_url: `${process.env.FRONTEND_URL}/course-progress/${courseId}`, // redirect after payment
         notify_url:
-          "https://97a4-49-43-6-76.ngrok-free.app/api/v1/purchase/cashfree-webhook",
+          `${process.env.BACKEND_URL}/api/v1/purchase/cashfree-webhook`,
       },
     };
 
