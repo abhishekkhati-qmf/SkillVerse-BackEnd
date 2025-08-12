@@ -8,6 +8,7 @@ import courseRoute from "./routes/course.route.js";
 import mediaRoute from "./routes/media.route.js";
 import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
+import serverless from "serverless-http";
 
 
 dotenv.config({});
@@ -15,7 +16,6 @@ dotenv.config({});
 connectDB();
 
 const app = express();
-const port = process.env.PORT;
 
 
 //default midlware
@@ -35,7 +35,4 @@ app.use("/api/v1/course", courseRoute);
 app.use("/api/v1/purchase", purchaseRoute);
 app.use("/api/v1/progress", courseProgressRoute);
 
-
-app.listen(port, () => {
-  console.log(`Server listen at port ${port}`);
-});
+export const handler = serverless(app);
