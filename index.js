@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://skill-verse-front-end-f5pu.vercel.app/",
+    origin: "https://skill-verse-front-end-f5pu.vercel.app",
     credentials: true,
   })
 );
