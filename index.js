@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://skill-verse-front-end-f5pu-e3s7mqig5-abhishek-khatis-projects.vercel.app/",
     credentials: true,
   })
 );
