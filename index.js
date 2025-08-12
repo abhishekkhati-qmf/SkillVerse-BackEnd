@@ -15,7 +15,7 @@ dotenv.config({});
 connectDB();
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 
 
 //default midlware
@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://skill-verse-front-end-f5pu.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
