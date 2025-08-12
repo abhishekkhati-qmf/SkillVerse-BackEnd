@@ -8,7 +8,6 @@ import courseRoute from "./routes/course.route.js";
 import mediaRoute from "./routes/media.route.js";
 import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
-import serverless from "serverless-http";
 
 
 dotenv.config({});
@@ -23,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://skill-verse-front-end-f5pu-e3s7mqig5-abhishek-khatis-projects.vercel.app/",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -35,4 +34,7 @@ app.use("/api/v1/course", courseRoute);
 app.use("/api/v1/purchase", purchaseRoute);
 app.use("/api/v1/progress", courseProgressRoute);
 
-export const handler = serverless(app);
+
+app.listen(port, () => {
+  console.log(`Server listen at port ${port}`);
+});
