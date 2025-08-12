@@ -15,6 +15,7 @@ dotenv.config({});
 connectDB();
 
 const app = express();
+const port = process.env.PORT || 8080;
 
 
 //default midlware
